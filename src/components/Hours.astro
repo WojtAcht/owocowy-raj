@@ -1,6 +1,6 @@
 ---
 const hours = [
-  { day: "Poniedziałek", time: "Nieczynne", closed: true, note: "(okres zimowy)" },
+  { day: "Poniedziałek", time: "Nieczynne", closed: true, note: "(tylko w okresie zimowym)" },
   { day: "Wtorek", time: "07:30 – 17:00", closed: false },
   { day: "Środa", time: "07:30 – 17:00", closed: false },
   { day: "Czwartek", time: "07:30 – 17:00", closed: false },
@@ -31,17 +31,19 @@ const hours = [
         <div class="absolute -inset-3 bg-gradient-to-br from-green-light/10 to-orange/5 rounded-[2rem] blur-xl"></div>
         <div class="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm overflow-hidden border border-white/60">
           {hours.map((item, i) => (
-            <div class={`flex items-center justify-between px-8 py-5 transition-colors hover:bg-green-light/5 ${i < hours.length - 1 ? "border-b border-green-light/10" : ""} ${item.closed ? "text-green-dark/35" : "text-green-dark"}`}>
-              <span class={`font-semibold ${item.closed ? "" : "text-green-dark"}`}>{item.day}</span>
-              <div class="flex items-center gap-3">
-                {!item.closed && (
-                  <span class="w-2 h-2 bg-green-light rounded-full animate-pulse-soft"></span>
-                )}
-                <span class={`text-sm ${item.closed ? "italic text-green-dark/40 font-medium" : "font-bold text-green-mid tracking-wide"}`}>
-                  {item.time}
-                </span>
-                {item.note && <span class="text-xs text-green-dark/30">{item.note}</span>}
+            <div class={`px-8 py-5 transition-colors hover:bg-green-light/5 ${i < hours.length - 1 ? "border-b border-green-light/10" : ""} ${item.closed ? "text-green-dark/35" : "text-green-dark"}`}>
+              <div class="flex items-center justify-between">
+                <span class={`font-semibold ${item.closed ? "" : "text-green-dark"}`}>{item.day}</span>
+                <div class="flex items-center gap-3">
+                  {!item.closed && (
+                    <span class="w-2 h-2 bg-green-light rounded-full animate-pulse-soft"></span>
+                  )}
+                  <span class={`text-sm ${item.closed ? "italic text-green-dark/40 font-medium" : "font-bold text-green-mid tracking-wide"}`}>
+                    {item.time}
+                  </span>
+                </div>
               </div>
+              {item.note && <p class="text-xs text-green-dark/40 mt-1 text-right">{item.note}</p>}
             </div>
           ))}
         </div>
