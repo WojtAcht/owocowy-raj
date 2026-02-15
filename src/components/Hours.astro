@@ -1,0 +1,51 @@
+---
+const hours = [
+  { day: "Poniedziałek", time: "Nieczynne", closed: true, note: "(okres zimowy)" },
+  { day: "Wtorek", time: "07:30 – 17:00", closed: false },
+  { day: "Środa", time: "07:30 – 17:00", closed: false },
+  { day: "Czwartek", time: "07:30 – 17:00", closed: false },
+  { day: "Piątek", time: "07:30 – 17:00", closed: false },
+  { day: "Sobota", time: "07:30 – 13:00", closed: false },
+  { day: "Niedziela", time: "Nieczynne", closed: true },
+];
+---
+
+<section id="godziny" class="relative py-24 md:py-32 bg-cream-dark overflow-hidden">
+  <!-- Decorative -->
+  <div class="absolute top-10 right-0 w-72 h-72 bg-green-light/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-10 w-48 h-48 bg-orange/5 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-2xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="reveal inline-block text-green-mid text-sm tracking-[0.2em] uppercase font-semibold mb-4">Kiedy nas odwiedzić</span>
+      <h2 class="reveal reveal-delay-1 font-heading font-black text-4xl md:text-5xl text-green-dark mb-6 leading-tight">
+        Godziny <span class="italic text-green-mid">otwarcia</span>
+      </h2>
+      <p class="reveal reveal-delay-2 text-green-dark/60 text-lg">
+        Zapraszamy w dni robocze i soboty
+      </p>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div class="relative">
+        <div class="absolute -inset-3 bg-gradient-to-br from-green-light/10 to-orange/5 rounded-[2rem] blur-xl"></div>
+        <div class="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm overflow-hidden border border-white/60">
+          {hours.map((item, i) => (
+            <div class={`flex items-center justify-between px-8 py-5 transition-colors hover:bg-green-light/5 ${i < hours.length - 1 ? "border-b border-green-light/10" : ""} ${item.closed ? "text-green-dark/35" : "text-green-dark"}`}>
+              <span class={`font-semibold ${item.closed ? "" : "text-green-dark"}`}>{item.day}</span>
+              <div class="flex items-center gap-3">
+                {!item.closed && (
+                  <span class="w-2 h-2 bg-green-light rounded-full animate-pulse-soft"></span>
+                )}
+                <span class={`text-sm ${item.closed ? "italic text-green-dark/40 font-medium" : "font-bold text-green-mid tracking-wide"}`}>
+                  {item.time}
+                </span>
+                {item.note && <span class="text-xs text-green-dark/30">{item.note}</span>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  article?: boolean;
+}
+
+const {
+  title = "Owocowy Raj u Ani | Świeże owoce i warzywa w Katowicach",
+  description = "Sklep z owocami i warzywami w Katowicach. Świeże produkty prosto od lokalnych dostawców. Odwiedź nas na ul. Ściegiennego 90.",
+  ogImage = "/images/og-default.jpg",
+  article = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const schemaLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://owocowy-raj.pl/#business",
+  name: "Owocowy Raj u Ani",
+  description: "Sklep z owocami i warzywami w Katowicach",
+  url: "https://owocowy-raj.pl",
+  telephone: "+48000000000",
+  image: "https://owocowy-raj.pl/images/og-default.jpg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "ul. Ks. Piotra Ściegiennego 90",
+    addressLocality: "Katowice",
+    postalCode: "40-111",
+    addressRegion: "śląskie",
+    addressCountry: "PL",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 50.27682936593234,
+    longitude: 19.00830835103989,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:30",
+      closes: "17:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "07:30",
+      closes: "13:00",
+    },
+  ],
+  sameAs: ["https://www.facebook.com/OwocowyRajUAni"],
+  priceRange: "$$",
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+<meta property="og:locale" content="pl_PL" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaLocalBusiness)} />

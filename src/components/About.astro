@@ -1,0 +1,46 @@
+<section id="o-nas" class="relative py-24 md:py-32 bg-cream overflow-hidden">
+  <!-- Decorative background -->
+  <div class="absolute top-0 right-0 w-72 h-72 bg-green-light/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange/5 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="reveal inline-block text-orange text-sm tracking-[0.2em] uppercase font-semibold mb-4">Nasza historia</span>
+        <h2 class="reveal reveal-delay-1 font-heading font-black text-4xl md:text-5xl text-green-dark mb-8 leading-tight">
+          O <span class="italic text-green-mid">nas</span>
+        </h2>
+        <div class="reveal reveal-delay-2 space-y-5">
+          <p class="text-green-dark/75 leading-relaxed text-lg">
+            <strong class="text-green-dark">Pani Anna Niemiec</strong> prowadzi Owocowy Raj już od prawie 30 lat. Przez ten czas nasze miejsce stało się dobrze znanym punktem na mapie Katowic, wracają do nas osoby, które cenią świeżość, jakość i życzliwe, osobiste podejście. Każdego ranka wybieramy najlepsze owoce i warzywa od sprawdzonych, lokalnych dostawców. Stawiamy na smak i wartości odżywcze, dlatego w Owocowym Raju zawsze znajdziesz produkty pełne aromatu i witamin, dokładnie takie, jakie sami chcemy mieć na stole.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-3 flex flex-wrap gap-3 mt-8">
+          {["Świeżość", "Lokalność", "Jakość", "Tradycja"].map((value) => (
+            <span class="inline-flex items-center gap-2 bg-green-dark/5 text-green-dark px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-green-dark/10 transition-colors cursor-default">
+              <span class="w-1.5 h-1.5 bg-orange rounded-full"></span>
+              {value}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-green-light/20 to-orange/10 rounded-3xl blur-2xl"></div>
+          <div class="relative rounded-3xl aspect-[4/3] overflow-hidden border border-green-light/20 shadow-xl">
+            <img
+              src="/images/owocowy_raj_glowne.jpg"
+              alt="Owocowy Raj, sklep z owocami i warzywami w Katowicach"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <!-- Decorative element -->
+          <div class="absolute -bottom-3 -right-3 w-24 h-24 bg-orange/10 rounded-2xl -z-10 rotate-6"></div>
+          <div class="absolute -top-3 -left-3 w-16 h-16 bg-green-light/10 rounded-2xl -z-10 -rotate-6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

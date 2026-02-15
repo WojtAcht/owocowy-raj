@@ -1,0 +1,64 @@
+---
+const leftBig = { src: "/images/wnetrze_ladne.jpg", alt: "Wnętrze sklepu Owocowy Raj" };
+const rightBig = { src: "/images/pani_ania.JPG", alt: "Pani Anna Niemiec w Owocowym Raju" };
+const middle = [
+  { src: "/images/pani_ania_z_papryka.JPG", alt: "Pani Ania z kolorową papryką" },
+  { src: "/images/szparagi.jpg", alt: "Świeże szparagi prosto od dostawcy" },
+  { src: "/images/torba_bebok.JPG", alt: "Ekologiczna torba z Bebokiem pełna zakupów" },
+  { src: "/images/owoce.jpg", alt: "Bogaty wybór świeżych owoców" },
+];
+---
+
+<section id="galeria" class="relative py-24 md:py-32 bg-cream overflow-hidden">
+  <div class="absolute bottom-0 left-0 w-80 h-80 bg-orange/5 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="reveal inline-block text-orange text-sm tracking-[0.2em] uppercase font-semibold mb-4">Zajrzyj do nas</span>
+      <h2 class="reveal reveal-delay-1 font-heading font-black text-4xl md:text-5xl text-green-dark mb-6 leading-tight">
+        <span class="italic text-green-mid">Galeria</span>
+      </h2>
+    </div>
+
+    <!-- Layout: duże lewo | 4 małe środek (2x2) | duże prawo -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5 auto-rows-[200px]">
+      <!-- Lewe duże zdjęcie — 1 kolumna, 2 rzędy -->
+      <div class="reveal reveal-delay-1 md:row-span-2 group">
+        <div class="relative rounded-2xl md:rounded-3xl h-full overflow-hidden border border-white/30 cursor-pointer hover-lift shadow-sm">
+          <img
+            src={leftBig.src}
+            alt={leftBig.alt}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- 4 małe zdjęcia na środku — 2 kolumny, 2 rzędy -->
+      {middle.map((item, i) => (
+        <div class={`reveal reveal-delay-${i + 2} group`}>
+          <div class="relative rounded-2xl md:rounded-3xl h-full overflow-hidden border border-white/30 cursor-pointer hover-lift shadow-sm">
+            <img
+              src={item.src}
+              alt={item.alt}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+
+      <!-- Prawe duże zdjęcie — 1 kolumna, 2 rzędy -->
+      <div class="reveal reveal-delay-3 md:row-span-2 md:col-start-4 md:row-start-1 group">
+        <div class="relative rounded-2xl md:rounded-3xl h-full overflow-hidden border border-white/30 cursor-pointer hover-lift shadow-sm">
+          <img
+            src={rightBig.src}
+            alt={rightBig.alt}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

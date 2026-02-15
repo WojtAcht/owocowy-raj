@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://owocowy-raj.pl/sitemap-index.xml

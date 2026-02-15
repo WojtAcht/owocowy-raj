@@ -1,0 +1,62 @@
+---
+const categories = [
+  {
+    title: "Warzywa",
+    description: "Kalafiory, pomidory, ogórki, papryka, ziemniaki i warzywa liściaste: wszystko, czego potrzebujesz na zupę, sałatkę i obiad. Stawiamy na sprawdzonych dostawców i warzywa, które naprawdę pachną i smakują jak trzeba.",
+    image: "/images/kalafior_cropped.jpg",
+  },
+  {
+    title: "Owoce",
+    description: "Od klasyków po egzotykę: truskawki, maliny, jabłka, gruszki, cytrusy i owoce, które miło zaskakują. Wybieramy je tak, żeby były soczyste, dojrzałe i pełne smaku.",
+    image: "/images/truskawki_cropped.jpg",
+  },
+  {
+    title: "Produkty sezonowe",
+    description: "Gdy zaczyna się sezon, stawiamy na to, co w danym momencie smakuje najlepiej: ogórki śremskie, idealne do kiszenia. A do tego inne sezonowe perełki: truskawki, czereśnie, borówki, śliwki czy dynie. ",
+    image: "/images/ogorki.jpg",
+  },
+];
+---
+
+<section id="oferta" class="relative py-24 md:py-32 bg-cream-dark overflow-hidden">
+  <!-- Decorative -->
+  <div class="absolute top-20 left-0 w-64 h-64 bg-green-light/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-10 right-10 w-48 h-48 bg-orange/5 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="reveal inline-block text-green-mid text-sm tracking-[0.2em] uppercase font-semibold mb-4">Co oferujemy</span>
+      <h2 class="reveal reveal-delay-1 font-heading font-black text-4xl md:text-5xl text-green-dark mb-6 leading-tight">
+        Nasza <span class="italic text-green-mid">oferta</span>
+      </h2>
+      <p class="reveal reveal-delay-2 text-green-dark/60 max-w-2xl mx-auto text-lg">
+        Codziennie świeża dostawa owoców i warzyw od lokalnych producentów
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {categories.map((cat, i) => (
+        <div class={`reveal reveal-delay-${i + 1} group`}>
+          <div class="relative bg-white rounded-3xl overflow-hidden hover-lift border border-white/40 h-full flex flex-col">
+            <div class="relative h-56 overflow-hidden">
+              <img
+                src={cat.image}
+                alt={cat.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+
+            <div class="p-8 flex flex-col flex-1">
+              <h3 class="font-heading font-bold text-2xl text-green-dark mb-4 text-center">{cat.title}</h3>
+              <p class="text-green-dark/65 leading-relaxed text-center">
+                {cat.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
