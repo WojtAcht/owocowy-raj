@@ -9,7 +9,7 @@ interface Props {
 const {
   title = "Owocowy Raj u Ani | Świeże owoce i warzywa w Katowicach",
   description = "Sklep z owocami i warzywami w Katowicach. Świeże produkty prosto od lokalnych dostawców. Odwiedź nas na ul. Ściegiennego 90.",
-  ogImage = "/images/og-default.jpg",
+  ogImage = `${import.meta.env.BASE_URL}images/og-default.jpg`,
   article = false,
 } = Astro.props;
 
@@ -18,12 +18,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const schemaLocalBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://owocowy-raj.pl/#business",
+  "@id": "https://wojtacht.github.io/owocowy-raj/#business",
   name: "Owocowy Raj u Ani",
   description: "Sklep z owocami i warzywami w Katowicach",
-  url: "https://owocowy-raj.pl",
+  url: "https://wojtacht.github.io/owocowy-raj/",
   telephone: "+48000000000",
-  image: "https://owocowy-raj.pl/images/og-default.jpg",
+  image: "https://wojtacht.github.io/owocowy-raj/images/og-default.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "ul. Ks. Piotra Ściegiennego 90",
@@ -64,7 +64,7 @@ const schemaLocalBusiness = {
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

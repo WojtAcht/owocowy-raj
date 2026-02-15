@@ -1,11 +1,12 @@
 ---
-const leftBig = { src: "/images/wnetrze_ladne.jpg", alt: "Wnętrze sklepu Owocowy Raj" };
-const rightBig = { src: "/images/pani_ania.JPG", alt: "Pani Anna Niemiec w Owocowym Raju" };
+const base = import.meta.env.BASE_URL;
+const leftBig = { src: `${base}images/wnetrze_ladne.jpg`, alt: "Wnętrze sklepu Owocowy Raj" };
+const rightBig = { src: `${base}images/pani_ania.JPG`, alt: "Pani Anna Niemiec w Owocowym Raju" };
 const middle = [
-  { src: "/images/pani_ania_z_papryka.JPG", alt: "Pani Ania z kolorową papryką" },
-  { src: "/images/szparagi.jpg", alt: "Świeże szparagi prosto od dostawcy" },
-  { src: "/images/torba_bebok.JPG", alt: "Ekologiczna torba z Bebokiem pełna zakupów" },
-  { src: "/images/owoce.jpg", alt: "Bogaty wybór świeżych owoców" },
+  { src: `${base}images/pani_ania_z_papryka.JPG`, alt: "Pani Ania z kolorową papryką" },
+  { src: `${base}images/szparagi.jpg`, alt: "Świeże szparagi prosto od dostawcy" },
+  { src: `${base}images/torba_bebok.JPG`, alt: "Ekologiczna torba z Bebokiem pełna zakupów" },
+  { src: `${base}images/owoce.jpg`, alt: "Bogaty wybór świeżych owoców" },
 ];
 ---
 
