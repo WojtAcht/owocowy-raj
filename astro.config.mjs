@@ -4,8 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://wojtacht.github.io',
-  base: '/owocowy-raj/',
+  site: 'https://www.owocowyrajuani.pl',
   vite: {
     plugins: [tailwindcss()],
   },
