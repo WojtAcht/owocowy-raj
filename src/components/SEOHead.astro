@@ -7,9 +7,9 @@ interface Props {
 }
 
 const {
-  title = "Owocowy Raj u Ani | Świeże owoce i warzywa w Katowicach",
-  description = "Sklep z owocami i warzywami w Katowicach. Świeże produkty prosto od lokalnych dostawców. Odwiedź nas na ul. Ściegiennego 90.",
-  ogImage = `${import.meta.env.BASE_URL}images/og-default.jpg`,
+  title = "Owocowy Raj u Ani – warzywniak i sklep z owocami w Katowicach | Śląsk",
+  description = "Warzywniak w Katowicach z prawie 30-letnią tradycją. Świeże owoce, warzywa i produkty sezonowe od lokalnych dostawców. Sklep z owocami i warzywami na ul. Ściegiennego 90 – zapraszamy!",
+  ogImage = `${import.meta.env.BASE_URL}images/owocowy_raj_glowne.jpg`,
   article = false,
 } = Astro.props;
 
@@ -17,13 +17,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const schemaLocalBusiness = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "GroceryStore",
   "@id": "https://www.owocowyrajuani.pl/#business",
   name: "Owocowy Raj u Ani",
-  description: "Sklep z owocami i warzywami w Katowicach",
+  alternateName: "Owocowy Raj",
+  description: "Warzywniak i sklep z owocami w Katowicach z prawie 30-letnią tradycją. Świeże owoce, warzywa i produkty sezonowe od lokalnych dostawców na Śląsku.",
   url: "https://www.owocowyrajuani.pl/",
   telephone: "+48883911170",
-  image: "https://www.owocowyrajuani.pl/images/og-default.jpg",
+  image: "https://www.owocowyrajuani.pl/images/owocowy_raj_glowne.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "ul. Ks. Piotra Ściegiennego 90",
@@ -37,6 +38,16 @@ const schemaLocalBusiness = {
     latitude: 50.27682936593234,
     longitude: 19.00830835103989,
   },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Katowice",
+    },
+    {
+      "@type": "State",
+      name: "województwo śląskie",
+    },
+  ],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -51,8 +62,13 @@ const schemaLocalBusiness = {
       closes: "13:00",
     },
   ],
-  sameAs: ["https://www.facebook.com/OwocowyRajUAni"],
+  sameAs: [
+    "https://www.facebook.com/OwocowyRajUAni",
+    "https://www.instagram.com/owocowyrajuani/",
+  ],
   priceRange: "$$",
+  currenciesAccepted: "PLN",
+  paymentAccepted: "Cash, Credit Card",
 };
 ---
 
@@ -62,13 +78,29 @@ const schemaLocalBusiness = {
 
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="keywords" content="warzywniak Katowice, owoce Katowice, warzywa Katowice, sklep owocowo-warzywny Katowice, warzywniak Śląsk, świeże owoce Śląsk, świeże warzywa Katowice, Owocowy Raj, sklep z owocami Katowice, lokalny warzywniak, owoce i warzywa Ściegiennego, warzywniak tradycyjny Katowice" />
+<meta name="author" content="Anna Niemiec – Owocowy Raj u Ani" />
 <link rel="canonical" href={canonicalURL} />
+<link rel="alternate" hreflang="pl" href={canonicalURL} />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+<link rel="icon" type="image/png" sizes="48x48" href={`${import.meta.env.BASE_URL}favicon-48.png`} />
+<link rel="icon" type="image/png" sizes="192x192" href={`${import.meta.env.BASE_URL}favicon-192.png`} />
+<link rel="icon" type="image/png" sizes="512x512" href={`${import.meta.env.BASE_URL}favicon-512.png`} />
+<link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+
+<meta name="geo.region" content="PL-24" />
+<meta name="geo.placename" content="Katowice" />
+<meta name="geo.position" content="50.27683;19.00831" />
+<meta name="ICBM" content="50.27683, 19.00831" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap"
+  rel="stylesheet"
+/>
 
 <meta property="og:type" content={article ? "article" : "website"} />
 <meta property="og:url" content={canonicalURL} />
